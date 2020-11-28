@@ -32,7 +32,7 @@ Buffer helps to synchronize different components, which gets requests and proces
 
 ### 6. What are the storage class available in Amazon S3?
 
-Amazon S3 offers a range of storage classes designed for different use cases. These include S3 Standard for general-purpose storage of frequently accessed data; S3 Intelligent-Tiering for data with unknown or changing access patterns; S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) for long-lived, but less frequently accessed data; and Amazon S3 Glacier (S3 Glacier) and Amazon S3 Glacier Deep Archive (S3 Glacier Deep Archive) for long-term archive and digital preservation; and S3 Outposts for on-premises object storage to meet data residency needs. You can learn more about these storage classes on the [Amazon S3 Storage Classes page](https://aws.amazon.com/s3/storage-classes/).
+Amazon S3 offers a range of storage classes designed for different use cases. These include S3 Standard for general-purpose storage of frequently accessed data; S3 Intelligent-Tiering for data with unknown or changing access patterns; S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) for long-lived, but less frequently accessed data; and Amazon S3 Glacier (S3 Glacier) and Amazon S3 Glacier Deep Archive (S3 Glacier Deep Archive) for long-term archive and digital preservation; and S3 Outposts for on-premises object storage to meet data residency needs. More about these storage classes on the [Amazon S3 Storage Classes page](https://aws.amazon.com/s3/storage-classes/).
 
 ### 7. What is the importance of buffer in Amazon Web Services?
 
@@ -40,14 +40,34 @@ An Elastic Load Balancer ensures that the incoming traffic is distributed optima
 
 ### 8. When should you use the classic load balancer and the application load balancer?
 
+The Classic Load Balancer operates on both the request and connection levels. However, it doesn't support features like host and path based routing. This is the first load balancer that AWS introduced in 2009 so it is missing some features. The Application Load Balancer was introduced to address this. A Classic Load Balancer is recommended only for EC2 Classic instances.
 
+Where as the Application Load Balancer operates at the request level only. If you're dealing with HTTP requests, which you are for your web application, you can use this. It supports the basic feature of distributing requests using the round robin algorithm. It also supports advanced features like host and path based routing.
 
 ### 9. Can you change the instance type of the instances that are running in your application tier and are also using autoscaling? If yes, then how?
 
+yes, You would need to create a new launch config specifying the new instance type and associate that with your autoscaling group - removing the current launch config. Over time the EC2s with the previous instance type will be terminated (assuming the default termination rules apply) and the new instance types will be launched when the auto scaling group scales out.
 
 ### 10. Any advantages and disadvantages when do autoscaling on running instance especially on production instance?
+
+Autoscaling has many advantages on running instance while in production is always an advantage provided if it's configured properly.
+
+Only disadvantage will be poorly configured auto scaling that could lead to cost alot of money for the company.
+
 ### 11. What do you do to secure your data in Cloud?
-### 12. Explain Stopping, Starting, and Terminating an Amazon EC2 instanc## e.
+
+1. Choose your cloud provider with care (Use cloud services that encrypt your data)
+2. Encrypt the data before uploading to the cloud
+3. Ask about provider’s processes in case of a breach
+4. Utilize file-level encryption
+5. Institute password best practices
+6. Implement two-factor authentication
+7. Transfer data securely
+8. Back up data consistently
+9. Understand recovery options
+10. User error (Educate employees)
+
+### 12. Explain Stopping, Starting, and Terminating an Amazon EC2 instance.
 ### 13. Define regions and availability zones in Amazon EC2
 ### 14. Is it important to select suitable zones for AWS services? What's the benefits of it?
 ### 15. What are the challenges in microservices debugging and troubleshooting?
