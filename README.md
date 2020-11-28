@@ -68,6 +68,42 @@ Only disadvantage will be poorly configured auto scaling that could lead to cost
 10. User error (Educate employees)
 
 ### 12. Explain Stopping, Starting, and Terminating an Amazon EC2 instance.
+
+#### Instance Stopping
+The instance is preparing to be stopped or stop-hibernated. Instance is not billed if preparing to stop, but billed if preparing to hibernate.
+
+#### Instance Starting
+To start the stopped instance, select the instance, and choose Instance state, Start instance.
+It can take a few minutes for the instance to enter the running state.
+
+#### Instance termination
+When you've decided that you no longer need an instance, you can terminate it. As soon as the status of an instance changes to shutting-down or terminated, you stop incurring charges for that instance.
+
 ### 13. Define regions and availability zones in Amazon EC2
+
+#### Regions
+AWS has the concept of a Region, which is a physical location around the world where AWS cluster data centers. AWS call each group of logical data centers an Availability Zone. Each AWS Region consists of multiple, isolated, and physically separate AZ's within a geographic area.
+
+#### Availability Zones
+An Availability Zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity in an AWS Region. AZ’s give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All AZ’s in an AWS Region are interconnected with high-bandwidth, low-latency networking, over fully redundant, dedicated metro fiber providing high-throughput, low-latency networking between AZ’s. All traffic between AZ’s is encrypted.
+
 ### 14. Is it important to select suitable zones for AWS services? What's the benefits of it?
+There are several reasons why a good strategy with regard to AZs comes in handy in several different situations. Just to cite some of the most common use cases, if you distribute your instances across multiple Availability Zones and one instance fails, you can design your application so that an instance in another Availability Zone can handle requests. This is like an emergency load balancer without using an actual load balancer.
+
+In general, AWS Availability Zones give you the flexibility to launch production apps and resources that are highly available, resilient/fault-tolerant, and scalable as compared to using a single data center. Having more options and backups is better!
+
 ### 15. What are the challenges in microservices debugging and troubleshooting?
+
+Debugging microservices is always likely to be a challenge for many developers, simply because of the inherent complexity in the task. As companies grow, they are going to use more microservices than ever before, and the number of microservices an entity uses is likely to only increase and rarely decrease. Keep in mind following things while debuging microservices.
+
+1. Make Sure Your Logs are Searchable
+2. Return Transactional References Back to the Client
+3. Invest in Setting Up a Logging Framework
+4. Consider Monitoring Tools
+5. Logging and crash reporting
+
+Challenges & changes with microservices
+1. Dependencies
+2. Logging distribution
+3. Lack of familiarity
+4. Tracing microservices
